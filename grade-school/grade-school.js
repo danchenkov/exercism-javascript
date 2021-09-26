@@ -7,22 +7,25 @@ export class GradeSchool {
     }
 
     roster() {
-        return this.#roster
+        const shallow = {}
+        for (const [name, grade] of Object.entries(this.#roster)) {
+            shallow[grade] ? shallow[grade].push(name) : shallow[grade] = [name]
+        }
+        for (const [grade] of Object.keys(shallow)) {
+            shallow[grade].sort();
+        }
+        return shallow
     }
 
     add(name, grade) {
-        this.#roster[grade] && this.#roster[grade].length ? this.#roster[grade].push(name) : this.#roster[grade] = [name]
-        this.#roster[grade].sort()
+        this.#roster[name] = grade
     }
 
     grade(grade) {
-        return this.#roster[grade] && this.#roster[grade].length ? this.#roster[grade] : []
+        const g = []
+        for (let key of Object.keys(this.#roster)) {
+            if (this.#roster[key] === grade) g.push(key)
+        }
+        return g.sort()
     }
 }
-
-// let school = new GradeSchool()
-// school.add('Jennifer', 4);
-// school.add('Kareem', 6);
-// school.add('Christopher', 4);
-// school.add('Kyle', 3);
-// console.log(school.grade(4))
