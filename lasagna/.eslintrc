@@ -1,0 +1,17 @@
+{
+    "root": true,
+    "extends": "@exercism/eslint-config-javascript",
+    "env": {
+        "jest": true
+    },
+    "parserOptions": {
+        "requireConfigFile": false
+    },
+    "overrides": [
+        {
+            "files": [".meta/proof.ci.js", ".meta/exemplar.js", "*.spec.js"],
+            "excludedFiles": ["custom.spec.js"],
+            "extends": "@exercism/eslint-config-javascript/maintainers"
+        }
+    ]
+}
