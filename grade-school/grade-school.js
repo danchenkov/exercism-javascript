@@ -1,31 +1,23 @@
 export class GradeSchool {
-
-    #roster
+    #rosterByGrade
+    #rosterByName
 
     constructor() {
-        this.#roster = {}
+        this.#rosterByGrade = {}
+        this.#rosterByName = {}
     }
 
-    roster() {
-        const shallow = {}
-        for (const [name, grade] of Object.entries(this.#roster)) {
-            shallow[grade] ? shallow[grade].push(name) : shallow[grade] = [name]
+    roster = () => JSON.parse(JSON.stringify(this.#rosterByGrade))
+
+    add = (name, grade) => {
+        const currentGrade = this.#rosterByName[name]
+        if (currentGrade) {
+            const index = this.#rosterByGrade[currentGrade].indexOf(name);
+            this.#rosterByGrade[currentGrade].splice(index, 1);
         }
-        for (const [grade] of Object.keys(shallow)) {
-            shallow[grade].sort();
-        }
-        return shallow
+        this.#rosterByGrade[grade] = this.grade(grade).concat(name).sort()
+        this.#rosterByName[name] = grade
     }
 
-    add(name, grade) {
-        this.#roster[name] = grade
-    }
-
-    grade(grade) {
-        const g = []
-        for (let key of Object.keys(this.#roster)) {
-            if (this.#roster[key] === grade) g.push(key)
-        }
-        return g.sort()
-    }
+    grade = (grade) => Array.from(this.#rosterByGrade[grade] || [])
 }
