@@ -2,6 +2,19 @@ const SCORES = { a: 1, e: 1, i: 1, o: 1, u: 1, l: 1, n: 1, r: 1, s: 1, t: 1, d: 
 
 export const score = word => [...word.toLowerCase()].reduce((score, letter) => SCORES[letter] + score, 0)
 
-export const scoreBonus = word => [...word.toLowerCase()].reduce((score, letter, multiplier) => {
-  return SCORES[letter] * multiplier + score
-}, 0)
+export const scoreBonus = word => {
+  let prevLetter
+  let repeatedRun = 0
+  const bonusMultiple = (repeatedRun) => 1 + repeatedRun
+
+  return [...word.toLowerCase()].reduce((score, letter) => {
+    prevLetter === letter
+      ? repeatedRun += 1
+      : repeatedRun = 0
+
+    const acc = (SCORES[letter] || 0) * bonusMultiple(repeatedRun) + score
+    prevLetter = letter
+    return acc
+  }, 0)
+}
+
