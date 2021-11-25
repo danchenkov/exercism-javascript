@@ -50,7 +50,7 @@ export function frontDoorPassword(word) {
  */
 export function backDoorResponse(line) {
   const l = line.trim()
-  return l[l.length-1]
+  return l[l.length - 1]
 }
 
 /**

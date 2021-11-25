@@ -19,8 +19,19 @@
     "plugin:import/warnings"
   ],
   "rules": {
+    "array-element-newline": [
+      "error",
+      "consistent"
+    ],
+    "indent": [
+      "error",
+      2
+    ],
+    "semi": [
+      "error",
+      "never"
+    ],
     "linebreak-style": "off",
-
     "import/extensions": "off",
     "import/no-default-export": "off",
     "import/no-unresolved": "off",
