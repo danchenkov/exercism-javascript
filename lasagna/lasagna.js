@@ -31,6 +31,11 @@
 // Good luck preparing some lasagna!
 
 /**
+ * The total amount of minutes for cooking lasagnia.
+ */
+export const EXPECTED_MINUTES_IN_OVEN = 40;
+
+/**
  * The number of minutes it takes to prepare a single layer.
  */
 const PREPARATION_MINUTES_PER_LAYER = 2;
@@ -43,7 +48,7 @@ const PREPARATION_MINUTES_PER_LAYER = 2;
  * @returns {number} the number of minutes remaining
  */
 export function remainingMinutesInOven(actualMinutesInOven) {
-  throw new Error('Remove this line and implement the function');
+  return actualMinutesInOven < 0 ? EXPECTED_MINUTES_IN_OVEN : (actualMinutesInOven > 40 ? 0 : EXPECTED_MINUTES_IN_OVEN - actualMinutesInOven);
 }
 
 /**
@@ -53,7 +58,7 @@ export function remainingMinutesInOven(actualMinutesInOven) {
  * @returns {number} the total preparation time
  */
 export function preparationTimeInMinutes(numberOfLayers) {
-  throw new Error('Remove this line and implement the function');
+  return numberOfLayers < 0 ? 0 : numberOfLayers  * PREPARATION_MINUTES_PER_LAYER
 }
 
 /**
@@ -65,5 +70,5 @@ export function preparationTimeInMinutes(numberOfLayers) {
  * @returns {number} the total working time
  */
 export function totalTimeInMinutes(numberOfLayers, actualMinutesInOven) {
-  throw new Error('Remove this line and implement the function');
+  return preparationTimeInMinutes(numberOfLayers) + (actualMinutesInOven < 0 ? EXPECTED_MINUTES_IN_OVEN : (actualMinutesInOven > 40 ? 0 : actualMinutesInOven) )
 }
