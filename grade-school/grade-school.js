@@ -4,15 +4,25 @@
 //
 
 export class GradeSchool {
-    roster() {
-        throw new Error('Remove this statement and implement this function');
+    #rosterByGrade
+    #rosterByName
+
+    constructor() {
+        this.#rosterByGrade = {}
+        this.#rosterByName = {}
     }
 
-    add() {
-        throw new Error('Remove this statement and implement this function');
+    roster = () => JSON.parse(JSON.stringify(this.#rosterByGrade))
+
+    add = (name, grade) => {
+        const currentGrade = this.#rosterByName[name]
+        if (currentGrade) {
+            const index = this.#rosterByGrade[currentGrade].indexOf(name);
+            this.#rosterByGrade[currentGrade].splice(index, 1);
+        }
+        this.#rosterByGrade[grade] = this.grade(grade).concat(name).sort()
+        this.#rosterByName[name] = grade
     }
 
-    grade() {
-        throw new Error('Remove this statement and implement this function');
-    }
+    grade = (grade) => Array.from(this.#rosterByGrade[grade] || [])
 }
