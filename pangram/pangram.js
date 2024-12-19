@@ -3,6 +3,6 @@
 // convenience to get you started writing code faster.
 //
 
-export const isPangram = () => {
-  throw new Error('Remove this statement and implement this function');
-};
+const ALPHABET = 26
+export const isPangram = (input) => [...input.toLowerCase()].sort().filter((item, pos, array) =>
+  (item >= 'a' && item <= 'z' && array.indexOf(item) === pos)).length === ALPHABET
