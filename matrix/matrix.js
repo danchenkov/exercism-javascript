@@ -3,16 +3,22 @@
 // convenience to get you started writing code faster.
 //
 
+const transpose = matrix => 0 < matrix.length ? (matrix[0].map((_, col) => matrix.map(row => row[col]))) : []
+
 export class Matrix {
-  constructor() {
-    throw new Error('Remove this statement and implement this function');
+  #rows
+  #columns
+
+  constructor(input) {
+    this.#rows = input.split(/\r?\n/).map((line) => line.split(' ').map(Number))
   }
 
   get rows() {
-    throw new Error('Remove this statement and implement this function');
+    return this.#rows
   }
 
   get columns() {
-    throw new Error('Remove this statement and implement this function');
+    if (!this.#columns) this.#columns = transpose(this.#rows)
+    return this.#columns
   }
 }
