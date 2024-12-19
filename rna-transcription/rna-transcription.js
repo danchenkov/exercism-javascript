@@ -3,6 +3,6 @@
 // convenience to get you started writing code faster.
 //
 
-export const toRna = () => {
-	throw new Error('Remove this statement and implement this function');
-};
+const dna2rna = new Map([['C', 'G'], ['G', 'C'], ['T', 'A'], ['A', 'U']])
+
+export const toRna = ([...sequence]) => sequence.map(nucleotide => dna2rna.get(nucleotide)).join('')
