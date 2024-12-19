@@ -1,0 +1,29 @@
+{
+  "name": "@exercism/javascript-bird-watcher",
+  "description": "Exercism concept exercise on for loops and the increment and decrement operators",
+  "author": "Franziska Obbarius <12543047+junedev@users.noreply.github.com>",
+  "private": true,
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/exercism/javascript",
+    "directory": "exercises/concept/bird-watcher"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.26.0",
+    "@exercism/babel-preset-javascript": "^0.2.1",
+    "@exercism/eslint-config-javascript": "^0.6.0",
+    "@types/jest": "^29.5.14",
+    "@types/node": "^22.10.2",
+    "babel-jest": "^29.7.0",
+    "core-js": "~3.39.0",
+    "eslint": "^9.17.0",
+    "jest": "^29.7.0"
+  },
+  "scripts": {
+    "test": "jest ./*",
+    "watch": "jest --watch ./*",
+    "lint": "eslint ."
+  },
+  "packageManager": "pnpm@9.15.0+sha512.76e2379760a4328ec4415815bcd6628dee727af3779aaa4c914e3944156c4299921a89f976381ee107d41f12cfa4b66681ca9c718f0668fa0831ed4c6d8ba56c"
+}
