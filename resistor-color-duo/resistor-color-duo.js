@@ -3,6 +3,5 @@
 // convenience to get you started writing code faster.
 //
 
-export const decodedValue = () => {
-	throw new Error('Remove this statement and implement this function');
-};
+export const COLORS = ["black", "brown", "red", "orange", "yellow", "green", "blue", "violet", "grey", "white"];
+export const decodedValue = (color) => color.slice(0, 2).reduce((a, c, i) => a + COLORS.indexOf(c) * 10 ** (1 - i), 0)
