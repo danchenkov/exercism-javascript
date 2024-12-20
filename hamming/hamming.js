@@ -3,6 +3,9 @@
 // convenience to get you started writing code faster.
 //
 
-export const compute = () => {
-  throw new Error('Remove this statement and implement this function');
-};
+export const compute = (strandA, strandB) => {
+  if (!strandA.length && strandB.length) throw new Error('left strand must not be empty')
+  if (strandA.length && !strandB.length) throw new Error('right strand must not be empty')
+  if (strandA.length !== strandB.length) throw new Error('left and right strands must be of equal length')
+  return strandA.split('').reduce((hammingDistance, nucleotide, index) => hammingDistance + (strandB[index] !== nucleotide), 0)
+}
