@@ -3,6 +3,13 @@
 // convenience to get you started writing code faster.
 //
 
-export const transform = () => {
-  throw new Error('Remove this statement and implement this function');
-};
+export const transform = scores => Object.fromEntries([...{
+  ...scores,
+  *[Symbol.iterator]() {
+    for (const [score, letters] of Object.entries(this)) {
+      for (const letter of letters) {
+        yield [letter.toLowerCase(), +score]
+      }
+    }
+  }
+}])
