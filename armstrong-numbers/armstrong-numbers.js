@@ -3,6 +3,4 @@
 // convenience to get you started writing code faster.
 //
 
-export const isArmstrongNumber = () => {
-	throw new Error('Remove this statement and implement this function');
-};
+export const isArmstrongNumber = num => [...`${num}`].reduce((sum, digit, _, { length }) => sum + digit ** length, 0) === num;
