@@ -8,55 +8,46 @@
  *
  * @returns {Card} the first card in the deck
  */
-export function getFirstCard(deck) {
-  throw new Error('Implement the getFirstCard function');
-}
+export const getFirstCard = ([firstCard]) => firstCard
 
 /**
  * Get the second card in the given deck
- *
- * @param {Card[]} deck
- *
- * @returns {Card} the second card in the deck
- */
-export function getSecondCard(deck) {
-  throw new Error('Implement the getSecondCard function');
-}
+*
+* @param {Card[]} deck
+*
+* @returns {Card} the second card in the deck
+*/
+export const getSecondCard = ([, secondCard]) => secondCard
 
 /**
  * Switch the position of the first two cards in the given deck
- *
- * @param {Card[]} deck
- *
- * @returns {Card[]} new deck with reordered cards
- */
-export function swapTopTwoCards(deck) {
-  throw new Error('Implement the swapTopTwoCards function');
-}
+*
+* @param {Card[]} deck
+*
+* @returns {Card[]} new deck with reordered cards
+*/
+export const swapTopTwoCards = ([firstCard, secondCard, ...rest]) => [secondCard, firstCard, ...rest]
 
 /**
  * Put the top card of the given deck into a separate discard pile
- *
- * @param {Card[]} deck
- *
- * @returns {[Card, Card[]]} the top card of the given
- * deck and a new deck containing all the other cards
- */
-export function discardTopCard(deck) {
-  throw new Error('Implement the discardTopCard function');
-}
+*
+* @param {Card[]} deck
+*
+* @returns {[Card, Card[]]} the top card of the given
+* deck and a new deck containing all the other cards
+*/
+export const discardTopCard = ([firstCard, ...rest]) => [firstCard, [...rest]]
 
 /** @type {Card[]} **/
-const FACE_CARDS = ['jack', 'queen', 'king'];
+const FACE_CARDS = ['jack', 'queen', 'king']
 
 /**
  * Insert face cards into the given deck
- *
- * @param {Card[]} deck
- *
- * @returns {Card[]} new deck where the second,
- * third, and fourth cards are the face cards
- */
-export function insertFaceCards(deck) {
-  throw new Error('Implement the insertFaceCards function');
-}
+*
+* @param {Card[]} deck
+*
+* @returns {Card[]} new deck where the second,
+* third, and fourth cards are the face cards
+*/
+export const insertFaceCards = ([firstCard, ...rest]) => [firstCard, ...FACE_CARDS, ...rest]
+
