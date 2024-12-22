@@ -7,4 +7,4 @@ export const parse = (markdown) =>
       '### ': `<h3>${text}</h3>`, '#### ': `<h4>${text}</h4>`,
       '##### ': `<h5>${text}</h5>`, '###### ': `<h6>${text}</h6>`
     })[mod] ?? `<p>${text}</p>`)
-    .replace(/(<li>(?!\n\n).*<\/li>)/gm, '<ul>$1</ul>');
+    .replace(/(<li>.*<\/li>)/gm, '<ul>$1</ul>');
